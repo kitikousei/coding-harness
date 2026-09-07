@@ -85,8 +85,15 @@ pnpm test                    # 运行测试
 ### CLI 运行
 
 ```bash
-pnpm pi-agent-platform run-mvp --task TASK-001 --runtime mock   # Mock 端到端
-pnpm pi-agent-platform run-stage --task TASK-001 --stage normalize_requirements --runtime mock
+# Mock 端到端（无需真实 Agent，快速验证流程）
+pnpm pi-agent-platform run-mvp --task TASK-001 --runtime mock
+
+# 真实 Agent 执行（需要本机 pi 已安装并认证）
+pnpm pi-agent-platform run-mvp --task TASK-001 --runtime pi --repo /path/to/repo \
+  --wait-approval
+
+# 单阶段运行
+pnpm pi-agent-platform run-stage --task TASK-001 --stage normalize_requirements --runtime pi
 ```
 
 ## 产物

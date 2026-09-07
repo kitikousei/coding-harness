@@ -92,8 +92,11 @@ pnpm pi-agent-platform run-mvp --task TASK-001 --runtime mock
 pnpm pi-agent-platform run-mvp --task TASK-001 --runtime pi --repo /path/to/repo \
   --wait-approval
 
-# 单阶段运行
+# 单阶段运行（可单独执行任意阶段）
 pnpm pi-agent-platform run-stage --task TASK-001 --stage normalize_requirements --runtime pi
+pnpm pi-agent-platform run-stage --task TASK-001 --stage codegraph_impact --runtime pi
+pnpm pi-agent-platform run-stage --task TASK-001 --stage implement_code --runtime pi
+pnpm pi-agent-platform run-stage --task TASK-001 --stage review_diff --runtime pi
 ```
 
 ## 产物

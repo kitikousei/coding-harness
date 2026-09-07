@@ -1,0 +1,48 @@
+{
+  "stage": "write_tests",
+  "tools": {
+    "native": [
+      "read_file",
+      "write_file",
+      "write_artifact",
+      "patch",
+      "terminal"
+    ],
+    "mcp": [],
+    "skills": [
+      "test-driven-development"
+    ]
+  },
+  "sandbox": "workspace-write",
+  "sensitiveOperations": [
+    "install_dep",
+    "delete_file",
+    "modify_ci"
+  ],
+  "promptIncludes": [
+    "prompts/GLOBAL_RULES.md"
+  ],
+  "promptTemplate": "prompts/write-tests.md",
+  "outputs": [
+    {
+      "path": "artifacts/tasks/${taskId}/test-cases.json",
+      "schema": "schemas/test-cases.schema.json",
+      "required": true
+    },
+    {
+      "path": "artifacts/tasks/${taskId}/test-cases.md",
+      "required": true
+    },
+    {
+      "path": "artifacts/tasks/${taskId}/diff.patch",
+      "required": true
+    }
+  ],
+  "constraints": {
+    "maxAgentRuns": 1,
+    "maxToolCallsPerRun": 80,
+    "allowSubagents": false,
+    "requireOutputFile": true,
+    "validateOutputSchema": true
+  }
+}

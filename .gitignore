@@ -1,0 +1,43 @@
+# CodeGraph index — local machine data
+.codegraph/
+
+# Codex CLI state
+.codex/
+
+# Hermes agent local skills
+.hermes/
+
+# Superpowers workflow state
+.superpowers/
+
+# Agent state
+.agents/
+
+# Generated artifacts
+artifacts/
+
+# Generated output reports
+outputs/
+
+# === pi-agent-platform ===
+
+# Dependencies
+pi-agent-platform/node_modules/
+
+# Build output
+pi-agent-platform/dist/
+
+# CodeGraph index (nested)
+pi-agent-platform/.codegraph/
+
+# Runtime logs
+pi-agent-platform/.logs/
+
+# Runtime PID files
+pi-agent-platform/.pids/
+
+# Generated artifacts (nested)
+pi-agent-platform/artifacts/
+
+# Runtime task working directories
+pi-agent-platform/TASK-*/

@@ -1,0 +1,9 @@
+{
+  "entrypoints": ["src/index.ts"],
+  "symbols": ["slugify"],
+  "callers": [],
+  "callees": [],
+  "affected_files": ["src/utils/slugify.ts"],
+  "test_targets": ["src/utils/slugify.test.ts"],
+  "risks": [{ "level": "invalid", "description": "Bad risk level" }]
+}

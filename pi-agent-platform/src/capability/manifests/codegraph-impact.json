@@ -1,0 +1,46 @@
+{
+  "stage": "codegraph_impact",
+  "tools": {
+    "native": [
+      "read_file",
+      "write_artifact"
+    ],
+    "mcp": [
+      "codegraph_context",
+      "codegraph_explore",
+      "codegraph_impact"
+    ],
+    "skills": [
+      "code-graphing"
+    ]
+  },
+  "mcpServers": [
+    {
+      "id": "codegraph-mcp",
+      "required": true
+    }
+  ],
+  "sandbox": "read-only",
+  "promptIncludes": [
+    "prompts/GLOBAL_RULES.md"
+  ],
+  "promptTemplate": "prompts/codegraph-impact.md",
+  "outputs": [
+    {
+      "path": "artifacts/tasks/${taskId}/codegraph-impact.json",
+      "schema": "schemas/impact.schema.json",
+      "required": true
+    },
+    {
+      "path": "artifacts/tasks/${taskId}/codegraph-impact.md",
+      "required": true
+    }
+  ],
+  "constraints": {
+    "maxAgentRuns": 2,
+    "maxToolCallsPerRun": 40,
+    "allowSubagents": false,
+    "requireOutputFile": true,
+    "validateOutputSchema": true
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["task_id", "status", "summary", "changed_files", "test_commands", "test_passed", "risks"],
+  "properties": {
+    "task_id": { "type": "string" },
+    "status": { "type": "string", "enum": ["completed", "failed", "blocked"] },
+    "summary": { "type": "string" },
+    "changed_files": { "type": "array", "items": { "type": "string" } },
+    "test_commands": { "type": "array", "items": { "type": "string" } },
+    "test_passed": { "type": "boolean" },
+    "risks": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}

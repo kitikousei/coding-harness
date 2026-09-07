@@ -1,0 +1,43 @@
+{
+  "stage": "fix_test_failures",
+  "tools": {
+    "native": [
+      "read_file",
+      "write_file",
+      "write_artifact",
+      "patch",
+      "terminal"
+    ],
+    "mcp": [],
+    "skills": [
+      "test-driven-development"
+    ]
+  },
+  "sandbox": "workspace-write",
+  "sensitiveOperations": [
+    "install_dep",
+    "delete_file",
+    "modify_ci"
+  ],
+  "promptIncludes": [
+    "prompts/GLOBAL_RULES.md"
+  ],
+  "promptTemplate": "prompts/fix-test-failures.md",
+  "outputs": [
+    {
+      "path": "artifacts/tasks/${taskId}/fix-attempt-${attempt}.md",
+      "required": true
+    },
+    {
+      "path": "artifacts/tasks/${taskId}/diff.patch",
+      "required": true
+    }
+  ],
+  "constraints": {
+    "maxAgentRuns": 1,
+    "maxToolCallsPerRun": 80,
+    "allowSubagents": false,
+    "requireOutputFile": true,
+    "validateOutputSchema": false
+  }
+}

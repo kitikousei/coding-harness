@@ -1,0 +1,43 @@
+{
+  "stage": "write_implementation_plan",
+  "tools": {
+    "native": [
+      "read_file",
+      "write_artifact"
+    ],
+    "mcp": [
+      "codegraph_context",
+      "codegraph_explore"
+    ],
+    "skills": []
+  },
+  "mcpServers": [
+    {
+      "id": "codegraph-mcp",
+      "required": true
+    }
+  ],
+  "sandbox": "read-only",
+  "promptIncludes": [
+    "prompts/GLOBAL_RULES.md"
+  ],
+  "promptTemplate": "prompts/write-implementation-plan.md",
+  "outputs": [
+    {
+      "path": "artifacts/tasks/${taskId}/implementation-plan.json",
+      "schema": "schemas/implementation-plan.schema.json",
+      "required": true
+    },
+    {
+      "path": "artifacts/tasks/${taskId}/implementation-plan.md",
+      "required": true
+    }
+  ],
+  "constraints": {
+    "maxAgentRuns": 2,
+    "maxToolCallsPerRun": 30,
+    "allowSubagents": false,
+    "requireOutputFile": true,
+    "validateOutputSchema": true
+  }
+}

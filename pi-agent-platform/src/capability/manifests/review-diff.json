@@ -1,0 +1,32 @@
+{
+  "stage": "review_diff",
+  "tools": {
+    "native": [
+      "read_file",
+      "write_artifact",
+      "terminal"
+    ],
+    "mcp": [],
+    "skills": [
+      "requesting-code-review"
+    ]
+  },
+  "sandbox": "read-only",
+  "promptIncludes": [
+    "prompts/GLOBAL_RULES.md"
+  ],
+  "promptTemplate": "prompts/review-diff.md",
+  "outputs": [
+    {
+      "path": "artifacts/tasks/${taskId}/review.md",
+      "required": true
+    }
+  ],
+  "constraints": {
+    "maxAgentRuns": 1,
+    "maxToolCallsPerRun": 40,
+    "allowSubagents": false,
+    "requireOutputFile": true,
+    "validateOutputSchema": false
+  }
+}

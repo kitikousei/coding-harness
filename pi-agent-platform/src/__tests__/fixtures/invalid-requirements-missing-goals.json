@@ -1,0 +1,9 @@
+{
+  "background": "Test project",
+  "non_goals": ["UI changes"],
+  "functional_requirements": ["Convert string to slug format"],
+  "non_functional_requirements": ["Must be fast"],
+  "constraints": ["Use TypeScript"],
+  "acceptance_criteria": ["Tests pass"],
+  "open_questions": []
+}

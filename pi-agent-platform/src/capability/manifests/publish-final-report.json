@@ -1,0 +1,34 @@
+{
+  "stage": "publish_final_report",
+  "tools": {
+    "native": [
+      "read_file",
+      "write_artifact"
+    ],
+    "mcp": [],
+    "skills": []
+  },
+  "sandbox": "read-only",
+  "promptIncludes": [
+    "prompts/GLOBAL_RULES.md"
+  ],
+  "promptTemplate": "prompts/publish-final-report.md",
+  "outputs": [
+    {
+      "path": "artifacts/tasks/${taskId}/final-report.json",
+      "schema": "schemas/final-report.schema.json",
+      "required": true
+    },
+    {
+      "path": "artifacts/tasks/${taskId}/final-report.md",
+      "required": true
+    }
+  ],
+  "constraints": {
+    "maxAgentRuns": 1,
+    "maxToolCallsPerRun": 20,
+    "allowSubagents": false,
+    "requireOutputFile": true,
+    "validateOutputSchema": true
+  }
+}

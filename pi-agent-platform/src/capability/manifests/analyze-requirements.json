@@ -1,0 +1,32 @@
+{
+  "stage": "analyze_requirements",
+  "tools": {
+    "native": [
+      "read_file",
+      "grep",
+      "find",
+      "ls",
+      "write_artifact"
+    ],
+    "mcp": [],
+    "skills": []
+  },
+  "sandbox": "read-only",
+  "promptIncludes": [
+    "prompts/GLOBAL_RULES.md"
+  ],
+  "promptTemplate": "prompts/analyze-requirements.md",
+  "outputs": [
+    {
+      "path": "artifacts/tasks/${taskId}/requirement-analysis.md",
+      "required": true
+    }
+  ],
+  "constraints": {
+    "maxAgentRuns": 2,
+    "maxToolCallsPerRun": 20,
+    "allowSubagents": false,
+    "requireOutputFile": true,
+    "validateOutputSchema": false
+  }
+}

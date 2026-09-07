@@ -1,0 +1,34 @@
+{
+  "stage": "normalize_requirements",
+  "tools": {
+    "native": [
+      "read_file",
+      "write_artifact"
+    ],
+    "mcp": [],
+    "skills": []
+  },
+  "sandbox": "read-only",
+  "promptIncludes": [
+    "prompts/GLOBAL_RULES.md"
+  ],
+  "promptTemplate": "prompts/normalize-requirements.md",
+  "outputs": [
+    {
+      "path": "artifacts/tasks/${taskId}/requirements.json",
+      "schema": "schemas/requirements.schema.json",
+      "required": true
+    },
+    {
+      "path": "artifacts/tasks/${taskId}/requirements.md",
+      "required": true
+    }
+  ],
+  "constraints": {
+    "maxAgentRuns": 2,
+    "maxToolCallsPerRun": 20,
+    "allowSubagents": false,
+    "requireOutputFile": true,
+    "validateOutputSchema": true
+  }
+}

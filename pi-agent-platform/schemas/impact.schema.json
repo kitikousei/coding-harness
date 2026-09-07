@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["entrypoints", "symbols", "callers", "callees", "affected_files", "test_targets", "risks"],
+  "properties": {
+    "entrypoints": { "type": "array", "items": { "type": "string" } },
+    "symbols": { "type": "array", "items": { "type": "string" } },
+    "callers": { "type": "array", "items": { "type": "string" } },
+    "callees": { "type": "array", "items": { "type": "string" } },
+    "affected_files": { "type": "array", "items": { "type": "string" } },
+    "test_targets": { "type": "array", "items": { "type": "string" } },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["level", "description"],
+        "properties": {
+          "level": { "type": "string", "enum": ["low", "medium", "high"] },
+          "description": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pi Agent Dashboard</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="task-rail">
+        <div class="rail-header">
+          <h1>Pi Agent</h1>
+          <button id="refreshTasks" type="button">Refresh</button>
+        </div>
+        <div id="taskList" class="task-list"></div>
+      </aside>
+
+      <main class="task-main">
+        <header class="task-header">
+          <div>
+            <div id="selectedTask" class="task-title">No task selected</div>
+            <div id="workflowLine" class="muted"></div>
+          </div>
+          <div id="statusBadge" class="status-badge">idle</div>
+        </header>
+
+        <section id="progress" class="progress-row"></section>
+
+        <section id="approvalPanel" class="approval-panel hidden">
+          <div>
+            <h2 id="approvalTitle">Approval</h2>
+            <p id="approvalSummary" class="muted"></p>
+          </div>
+          <textarea id="approvalComment" rows="3" aria-label="Approval comment"></textarea>
+          <div class="approval-actions">
+            <button id="approveButton" class="primary" type="button">Approve</button>
+            <button id="rejectButton" class="danger" type="button">Reject</button>
+          </div>
+          <div id="approvalError" class="error-line"></div>
+        </section>
+
+        <section id="artifactsSection" class="artifacts-section">
+          <h3>Stage Outputs</h3>
+          <div id="artifactsContent" class="artifacts-content"></div>
+        </section>
+
+        <section id="costSection" class="cost-section">
+          <h3>Cost / Token Usage</h3>
+          <div id="costContent" class="cost-content">
+            <div class="muted">No cost data yet</div>
+          </div>
+        </section>
+
+        <section class="toolbar">
+          <select id="sourceFilter">
+            <option value="">All sources</option>
+            <option value="workflow">Workflow</option>
+            <option value="agent">Agent</option>
+            <option value="stderr">stderr</option>
+          </select>
+          <select id="stageFilter">
+            <option value="">All stages</option>
+          </select>
+          <label><input id="errorsOnly" type="checkbox"> Errors only</label>
+          <label><input id="showDebug" type="checkbox"> Show debug</label>
+          <button id="clearLogs" type="button">Clear View</button>
+        </section>
+
+        <section id="logList" class="log-list"></section>
+      </main>
+    </div>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

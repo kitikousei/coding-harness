@@ -1,0 +1,41 @@
+{
+  "stage": "implement_code",
+  "tools": {
+    "native": [
+      "read_file",
+      "write_file",
+      "write_artifact",
+      "patch",
+      "terminal"
+    ],
+    "mcp": [],
+    "skills": []
+  },
+  "sandbox": "workspace-write",
+  "sensitiveOperations": [
+    "install_dep",
+    "delete_file",
+    "modify_ci"
+  ],
+  "promptIncludes": [
+    "prompts/GLOBAL_RULES.md"
+  ],
+  "promptTemplate": "prompts/implement-code.md",
+  "outputs": [
+    {
+      "path": "artifacts/tasks/${taskId}/implementation-notes.md",
+      "required": true
+    },
+    {
+      "path": "artifacts/tasks/${taskId}/diff.patch",
+      "required": true
+    }
+  ],
+  "constraints": {
+    "maxAgentRuns": 1,
+    "maxToolCallsPerRun": 120,
+    "allowSubagents": false,
+    "requireOutputFile": true,
+    "validateOutputSchema": false
+  }
+}

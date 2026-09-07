@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["cases"],
+  "properties": {
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "requirement", "type", "expected"],
+        "properties": {
+          "name": { "type": "string" },
+          "requirement": { "type": "string" },
+          "type": { "type": "string", "enum": ["unit", "integration", "e2e", "manual"] },
+          "expected": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

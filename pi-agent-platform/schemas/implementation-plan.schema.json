@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["summary", "files_to_change", "steps", "test_strategy", "risks", "rollback"],
+  "properties": {
+    "summary": { "type": "string" },
+    "files_to_change": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "reason", "change_type"],
+        "properties": {
+          "path": { "type": "string" },
+          "reason": { "type": "string" },
+          "change_type": { "type": "string", "enum": ["create", "modify", "delete"] }
+        },
+        "additionalProperties": false
+      }
+    },
+    "steps": { "type": "array", "items": { "type": "string" } },
+    "test_strategy": { "type": "array", "items": { "type": "string" } },
+    "risks": { "type": "array", "items": { "type": "string" } },
+    "rollback": { "type": "string" }
+  },
+  "additionalProperties": false
+}

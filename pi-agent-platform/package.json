@@ -1,0 +1,34 @@
+{
+  "name": "pi-agent-platform",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "pi-agent-platform": "tsx src/cli/index.ts",
+    "dashboard": "tsx src/cli/index.ts dashboard",
+    "worker": "tsx src/cli/worker.ts",
+    "start": "tsx src/cli/worker.ts"
+  },
+  "dependencies": {
+    "@earendil-works/pi-coding-agent": "0.83.0",
+    "@temporalio/activity": "^1.13.0",
+    "@temporalio/client": "^1.13.0",
+    "@temporalio/common": "^1.13.0",
+    "@temporalio/testing": "^1.13.0",
+    "@temporalio/worker": "^1.13.0",
+    "@temporalio/workflow": "^1.13.0",
+    "ajv": "^8.17.1",
+    "commander": "^13.1.0",
+    "execa": "^9.5.2",
+    "typebox": "^1.3.25"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "commands": ["pnpm test"],
+  "failed_tests": [],
+  "log_file": "artifacts/tasks/TASK-1/test-output.log"
+}

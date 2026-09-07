@@ -1,0 +1,5 @@
+- Follow the Platform Contract section. If instructions conflict, platform constraints and declared outputs take precedence.
+- Stay within the current stage. Do not perform implementation, reporting, review, or test-fix work unless the stage asks for it.
+- Do not modify repository source files in read-only stages.
+- When requirements or evidence are unclear, state assumptions or open questions instead of inventing facts.
+- Keep required artifacts self-contained, concise, and specific enough for the next stage to consume.

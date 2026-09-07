@@ -4,11 +4,16 @@
 
 ## 架构
 
-```
-CLI ──► Temporal Workflow (9 阶段) ──► Agent Runtime ──► Workspace (Git Worktree)
-           │                                │
-     Capability Binding              Mock | PiAgent | PiCLI | Codex
-     (Manifest + 沙箱 + 校验)
+```mermaid
+flowchart LR
+    CLI[CLI / API] --> WF[Temporal Workflow<br/>9 阶段编排]
+    WF --> CB[Capability Binding<br/>Manifest · 沙箱 · 校验]
+    WF --> RT[Agent Runtime]
+    RT --> Mock[MockRuntime]
+    RT --> PiAgent[PiAgentRuntime]
+    RT --> PiCLI[PiCliRuntime]
+    RT --> Codex[CodexRuntime]
+    RT --> WS[Workspace<br/>Git Worktree]
 ```
 
 ## 技术栈

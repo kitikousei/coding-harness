@@ -7,6 +7,7 @@
 ```mermaid
 flowchart LR
     CLI[CLI / API] --> WF[Temporal Workflow<br/>9 阶段编排]
+    CLI --> DASH[Dashboard<br/>Web UI]
     WF --> CB[Capability Binding<br/>Manifest · 沙箱 · 校验]
     WF --> RT[Agent Runtime]
     RT --> Mock[MockRuntime]
@@ -14,6 +15,7 @@ flowchart LR
     RT --> PiCLI[PiCliRuntime]
     RT --> Codex[CodexRuntime]
     RT --> WS[Workspace<br/>Git Worktree]
+    DASH --> WF
 ```
 
 ## 技术栈
@@ -29,6 +31,7 @@ pi-agent-platform/
 │   ├── agent-runtimes/   Agent 运行时抽象（Mock / PiAgent / PiCLI / Codex）
 │   ├── capability/       能力绑定（Manifest、沙箱、MCP、Skill、输出校验）
 │   ├── cli/              CLI 命令（create-task / run-stage / run-mvp / workflow）
+│   ├── dashboard/        本地 Web Dashboard（任务列表、事件流、审批）
 │   ├── stages/           阶段执行器 + Prompt 组装
 │   ├── testing/          测试命令解析 + 执行
 │   ├── workflows/        Temporal 12 阶段工作流
@@ -61,6 +64,27 @@ cd pi-agent-platform
 pnpm install
 pnpm build
 pnpm test                    # 运行测试
+```
+
+### 一键启动全栈环境
+
+```bash
+./init-env.sh                # 启动 Temporal Server + Worker + Dashboard
+./init-env.sh --status       # 查看服务状态
+./init-env.sh --stop         # 停止所有服务
+```
+
+启动后可用地址：
+
+| 服务 | 地址 |
+|------|------|
+| Temporal Web UI | http://localhost:8233 |
+| Dashboard | http://localhost:8787 |
+| Temporal gRPC | localhost:7233 |
+
+### CLI 运行
+
+```bash
 pnpm pi-agent-platform run-mvp --task TASK-001 --runtime mock   # Mock 端到端
 pnpm pi-agent-platform run-stage --task TASK-001 --stage normalize_requirements --runtime mock
 ```
@@ -71,4 +95,4 @@ pnpm pi-agent-platform run-stage --task TASK-001 --stage normalize_requirements 
 
 ## 状态
 
-MVP 已完成：MockRuntime 全链路端到端闭环、Temporal 审批/重试、CLI 全套命令。待完成：PiAgentRuntime 真实执行、Temporal 生产部署、Web UI、GitHub PR 集成。
+MVP 已完成：MockRuntime 全链路端到端闭环、Temporal 审批/重试、CLI 全套命令、本地 Web Dashboard。待完成：PiAgentRuntime 真实执行、Temporal 生产部署、GitHub PR 集成。

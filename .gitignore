@@ -13,8 +13,8 @@
 # Agent state
 .agents/
 
-# Generated artifacts
-artifacts/
+# Generated artifacts (workspace root)
+/artifacts/
 
 # Generated output reports
 outputs/
